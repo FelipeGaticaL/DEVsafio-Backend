@@ -9,23 +9,69 @@ The project consists of an online platform oriented to the use of job search and
 
 TL: [José Campos](https://github.com/josecamposhz)
 
+
+### Others
+
+
 ### Frontend
 
 FE: [Francisco D. Molina](https://github.com/TheFranciscoMolina)  
 FE: [Eliecer Calderon](https://github.com/eliecergonzalez2021)  
-FE: [Irani Romero](https://github.com/iranimromero)  
-FE: [Marcia Alegria](https://github.com/marciaalegria)  
-FS: [Daniela Hernández](https://github.com/DanyBeth-Dev)
-
+FS: [Veronica Caro](https://github.com/vecarope)  
+FS: [Felipe Gatica L](https://github.com/FelipeGaticaL)
 
 ### Backend
 
-FS: [Veronica Caro](https://github.com/vecarope)    
 FS: [Rodrigo Quezada Candia](https://github.com/DarkKapo)  
-FS: [Felipe Gatica L](https://github.com/FelipeGaticaL)  
-FS: [Benjamin Padros](https://github.com/bpadros) 
+FS: [Felipe Gatica L](https://github.com/FelipeGaticaL)
 
+### Fullstack
+FS: [Felipe Gatica L](https://github.com/FelipeGaticaL)
 
+## My Complete Tasks
+### Frontend
+
+- Connect Nodemailer with user registration section - "Welcome Register".
+- Test - Api - Cards
+- Axios Connection and Functionality in Devlenguage- Tool - Database - Admin
+- CSS Refactoring Admin Views (Flex instead of Grid)
+- "Applicant" connection functionality in Admin view, table creation and Export Buttons
+- "Companies" connection functionality in Admin view, table creation and Export Buttons
+- Add Function to Firebase and connected with Backend
+- Forgot - And - Restore Password Connections
+- Implementation of Formik and YUP in Contact Company section
+- Implementation functionality to Contaqct Company Section, and connected to Backend
+- Implementation in "applicant" view, in the "jobprofile" section multi tool, frameworks, database and languages selector and their respective levels.
+- Refactoring and creating functionalities to the tests in the "test" section of the applicants' test section
+- Design UI Devlengugee, Tool, Database in Admin View
+
+### Backend
+
+For the backend, a three-tier architecture was chosen, i.e. Controller, Service and Model. The latter refers to Sequelize ORM models and migrations. Therefore, for each route or endpoint, it should be considered that a controller, service and model were built. 
+
+- Implementation of the "static/public" configuration to access static resources from the front end or back end.
+- Implementation roles config
+- Implementation login user
+- Implementation admin controllers, "GET all" companies and applicants whit all their atributes
+- Implementation middleware JWT - User
+- Creation of "Contact Company" endpoint and data validation with "express-validate".
+- Pgadmin Configuration in Docker Compose
+- Endpoint, implementation of "xlsx" library, and creation of SQL query with "Subquery" and data "transposition" in Workprofile
+- Endpoint, implementation of "xlsx" library, and creation of SQL query with "Subquery" and data "transposition" in Company
+- Configuration app, docker and DB for deploy fly.io
+- Implementation of "Endpoint" to forgotten password and send an email with "Nodemailer" with the preconfigured token in JWT (forgot password functions)
+- Implementation of "Endpoint" to reset password and receive "Query param" from the URL previously sent with "Nodemailer" with the preconfigured token in JWT (forgot password functions). Save new password encrypteded with "bcrypt"
+- Implementation "Endpoint" and CRUD of Tools
+- Implementation "Endpoint" and CRUD of Database & Frameworks
+- Implementation "Endpoint" and CRUD of Language
+- Creation "Seeders" (Sequelize ORM) for users demo (applicant and admin), companies demo, tables and tests
+- Creation endpoint and functions of Firebase
+- Implementation models and migrations (Sequelize ORM) of "test"
+- Add middeware "error handler"
+
+### Others 
+
+- Creation of the database structure, respecting the "Third Normal Form" (standardization)
 ## 🧰 Dependencies    
 
 This project was built mainly whith the following technologies: 
