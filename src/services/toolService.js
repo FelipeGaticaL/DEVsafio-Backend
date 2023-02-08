@@ -14,9 +14,14 @@ const postCreateTool = async ( tool ) => {
   }
   let t1 = await sequelize.transaction()
   try {
-    await Tools.create( { name: tool }, { returning: true, transaction: t1 } )
+    const MaxIdCol = await Tools.findAll({
+      attributes: [sequelize.fn('max', sequelize.col('id'))],
+      raw: true,
+  })
+    const MaxId = MaxIdCol[0].max+1
+    const data = await Tools.create( { id: MaxId, name: tool }, { returning: true, transaction: t1 } )
     await t1.commit()
-    return { message: "Se ha generado una nueva herramienta" }
+    return data
   } catch ( error ) {
     await t1.rollback();
     throw new ApiError( 'Error al crear nueva herramienta', httpStatus.UNPROCESSABLE_ENTITY )
@@ -30,7 +35,7 @@ const putUpdateTool = async ( dataTool ) => {
   }
   let t1 = await sequelize.transaction()
   try {
-    await Tools.update( { name: dataTool.tool}, { where: { id: dataTool.id }, transaction: t1 } )
+    await Tools.update( { name: dataTool.name}, { where: { id: dataTool.id }, transaction: t1 } )
     await t1.commit()
     return { message: "Se ha actualizado una herramienta correctamente" }
   } catch ( error ) {

@@ -11,7 +11,7 @@ const getAllTools = async ( req, res, next ) => {
 };
 
 const postCreateTool = async ( req, res, next ) => {
-  const tool = req.body.tool
+  const tool = req.body.name
   try {
     const data = await ToolService.postCreateTool( tool );
 
@@ -32,7 +32,7 @@ const putUpdateTool = async ( req, res, next ) => {
 };
 
 const deleteDestroyTool = async ( req, res, next ) => {
-  const dataTool = req.body
+  const dataTool = req.query
   try {
     const data = await ToolService.deleteDestroyTool( dataTool );
     res.status(httpStatus.OK).send( data );

@@ -16,9 +16,14 @@ const postCreateSoftSkills = async ( softSkill ) => {
   }
   let t1 = await sequelize.transaction()
   try {
-    await SoftSkills.create( { name: softSkill }, { returning: true, transaction: t1 } )
+    const MaxIdCol = await SoftSkills.findAll({
+      attributes: [sequelize.fn('max', sequelize.col('id'))],
+      raw: true,
+  })
+    const MaxId = MaxIdCol[0].max+1
+    const data = await SoftSkills.create( { id: MaxId, name: softSkill }, { returning: true, transaction: t1 } )
     await t1.commit()
-    return { message: "Se ha generado una softskill correctamente" }
+    return data
   } catch ( error ) {
     await t1.rollback();
     throw new ApiError( 'Error al crear una nueva softskill', httpStatus.UNPROCESSABLE_ENTITY )
@@ -32,7 +37,7 @@ const putUpdateSoftSkill = async ( softSkill ) => {
   }
   let t1 = await sequelize.transaction()
   try {
-    await SoftSkills.update( { name: softSkill.softSkill}, { where: { id: softSkill.id }, transaction: t1  } )
+    await SoftSkills.update( { name: softSkill.name}, { where: { id: softSkill.id }, transaction: t1  } )
     await t1.commit()
     return { message: "Se ha actualizado el soft-skill correctamente" }
   } catch ( error ) {

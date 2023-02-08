@@ -12,7 +12,7 @@ const getAllSoftSkills = async ( req, res, next ) => {
 };
 
 const postCreateSoftSkills = async ( req,res,next ) => {
-  const softSkill = req.body.softSkill
+  const softSkill = req.body.name
   try {
     const data = await SoftSkillService.postCreateSoftSkills( softSkill )
     res.status(httpStatus.OK).send( data );
@@ -32,7 +32,7 @@ const putUpdateSoftSkill = async ( req, res, next ) => {
 };
 
 const deleteDestroySoftSkill = async ( req, res, next ) => {
-  const softSkill = req.body
+    const softSkill = req.query
   try {
     const data = await SoftSkillService.deleteDestroySoftSkill( softSkill );
     res.status(httpStatus.OK).send( data );

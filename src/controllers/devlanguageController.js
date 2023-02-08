@@ -11,7 +11,7 @@ const getAllDevLanguages = async ( req, res, next ) => {
 };
 
 const postCreateDevlenguage = async ( req, res, next ) => {
-  const devlenguage = req.body.devlenguage
+  const devlenguage = req.body.name
   try {
     const data = await devlanguagesService.postCreateDevlenguage( devlenguage );
     res.status(httpStatus.OK).send( data );
@@ -31,7 +31,7 @@ const putUpdateDevlenguage = async ( req, res, next ) => {
 };
 
 const deleteDestroyDevlenguage = async ( req, res, next ) => {
-  const devlenguage = req.body
+  const devlenguage = req.query
   try {
     const data = await devlanguagesService.deleteDestroyDevlenguage( devlenguage );
     res.status(httpStatus.OK).send( data );

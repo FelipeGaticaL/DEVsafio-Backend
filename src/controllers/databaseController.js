@@ -12,7 +12,8 @@ const getAllDatabases = async ( req, res, next ) => {
 };
 
 const postCreateDatabase = async ( req, res, next ) => {
-  const database = req.body.database
+
+  const database = req.body.name
 
   try {
     const data = await databasesService.postCreateDatabase( database );
@@ -24,6 +25,7 @@ const postCreateDatabase = async ( req, res, next ) => {
 
 const putUpdateDatabase = async ( req, res, next ) => {
   const database = req.body
+
   try {
     const data = await databasesService.putUpdateDatabase( database );
     res.status(httpStatus.OK).send( data );
@@ -33,7 +35,9 @@ const putUpdateDatabase = async ( req, res, next ) => {
 };
 
 const deleteDestroyDatabase = async ( req, res, next ) => {
-  const database = req.body
+  const database = req.query
+
+
   try {
     const data = await databasesService.deleteDestroyDatabase( database );
     res.status(httpStatus.OK).send( data );
